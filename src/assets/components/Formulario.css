@@ -11,7 +11,9 @@ input[type="time"] {
 }
 
 
-
+input, label{
+  text-align: left;
+}
 label {
     color: white;
   }

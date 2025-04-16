@@ -11,6 +11,8 @@
   .cita p {
     font-weight: bold;
     margin-bottom: .8rem;
+    text-align: left;
+
   }
 
   .cita p span {

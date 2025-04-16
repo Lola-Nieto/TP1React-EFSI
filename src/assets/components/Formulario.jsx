@@ -2,11 +2,10 @@ import React from 'react'
 import './Formulario.css'
 
 
-function Formulario(props) {
+function Formulario() {
 
     return (
       <>
-       <div class="one-half column">
             <h2>Crear mi Cita</h2>
             <form>
                 <label>Nombre Mascota</label><input type="text" name="mascota" class="u-full-width" placeholder="Nombre Mascota" value=""/>
@@ -16,7 +15,7 @@ function Formulario(props) {
                 <label>Sintomas</label><textarea name="sintomas" class="u-full-width"></textarea>
                 <button type="submit" class="u-full-width button-primary">Agregar Cita</button>
             </form>
-          </div>
+
       </>
     )
   }

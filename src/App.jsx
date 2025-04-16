@@ -1,23 +1,23 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import '././assets/components/Formulario'
-import '././assets/components/Listado'
 import React from 'react'
 
 import './App.css'
+import Formulario from './assets/components/Formulario'
+import Listado from './assets/components/Listado'
 
-
-//Algo así?
-import React from react
 
 
 function App() {
 
   return (
     <>
-    <Formulario  />
-    <Listado />
+<h1>ADMINISTRADOR DE PACIENTES</h1>
+<div id="dosColumnas">
+    <div> <Formulario/></div>
+    <div><Listado /></div>
+    </div>
     </>
   )
 }

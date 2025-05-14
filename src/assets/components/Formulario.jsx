@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import './Formulario.css'
 
 
-function Formulario({meLlevoValores}) {
+function Formulario({onAgregarCita}) {
 
-  function MyForm() {
     const [formData, setFormData] = useState({
       nombre: '',
       propietario: '',
@@ -12,7 +11,7 @@ function Formulario({meLlevoValores}) {
       hora: '', 
       sintomas: ''
     });
-    const [esValido, setEsValido] = useState(false);
+    const [esValido, setEsValido] = useState(true);
 
     
     const handleChange = (event) => {
@@ -22,19 +21,26 @@ function Formulario({meLlevoValores}) {
         [name]: value
       }));
     };
-    const ValidarForm(){
-      
-      setEsValido(true)
+    const ValidarForm = () => {
+      setEsValido(true);
+      for (const campo in formData) {
+        if (Object.hasOwnProperty.call(formData, campo)) {
+          if (formData[campo] === '' ){
+            setEsValido(false);
+            break;
+          }
+        }
+      }
     }
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      if(ValidarForm(() =>{
-        
-      }
-      )){
+      ValidarForm();
+      if(esValido){
         console.log("Form válido. Data que le mando a App.js: "+ formData);
-        meLlevoValores(formData);
+        onAgregarCita(formData);
+      }else{
+        console.log("Form inválido.")
       }
       
     };
@@ -45,23 +51,23 @@ function Formulario({meLlevoValores}) {
             <h2>Crear mi Cita</h2>
             <form>
                 <label>Nombre Mascota</label>
-                <input type="text" name="nombre" class="u-full-width" placeholder="Nombre Mascota" value={formData.nombre} onChange={handleChange}/>
+                <input type="text" name="nombre" className="u-full-width" placeholder="Nombre Mascota" value={formData.nombre} onChange={handleChange}/>
                 
                 <label>Nombre Dueño</label>
-                <input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota" value={formData.propietario} onChange={handleChange}/>
+                <input type="text" name="propietario" className="u-full-width" placeholder="Nombre dueño de la mascota" value={formData.propietario} onChange={handleChange}/>
                 
                 <label>Fecha</label>
-                <input type="date" name="fecha" class="u-full-width" value={formData.fecha} onChange={handleChange}/>
+                <input type="date" name="fecha" className="u-full-width" value={formData.fecha} onChange={handleChange}/>
                 
                 <label>Hora</label>
-                <input type="time" name="hora" class="u-full-width" value={formData.hora} onChange={handleChange}/>
+                <input type="time" name="hora" className="u-full-width" value={formData.hora} onChange={handleChange}/>
                 
                 <label>Sintomas</label>
-                <textarea name="sintomas" class="u-full-width" value={formData.sintomas} onChange={handleChange}/>
+                <textarea name="sintomas" className="u-full-width" value={formData.sintomas} onChange={handleChange}/>
                 
-                <button type="submit" class="u-full-width button-primary" onClick={handleSubmit} disabled={!esValido}>Agregar Cita</button>
+                <button type="submit" className="u-full-width button-primary" onClick={handleSubmit} disabled={!esValido}>Agregar Cita</button>
             
-                {esValido && <p>El formulario es válido.</p>}
+                {!esValido && <p>El formulario NO es válido.</p>}
             </form>
 
       </>

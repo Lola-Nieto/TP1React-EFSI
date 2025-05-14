@@ -8,12 +8,14 @@ import Listado from './assets/components/Listado'
 
 
 function App() {
-
+  const sacoDatosDelForm = (data) => {
+    console.log("Lo que llega a App.js: "+data)
+  }
   return (
     <>
 <h1>ADMINISTRADOR DE PACIENTES</h1>
 <div id="dosColumnas">
-    <div> <Formulario/></div>
+    <div> <Formulario onAgregarTarjeta={sacoDatosDelForm}/> </div> //Hacer onAgregarTarjeta
     <div><Listado /></div>
     </div>
     </>

@@ -33,7 +33,7 @@ function App() {
       <h1>ADMINISTRADOR DE PACIENTES</h1>
       <div id="dosColumnas">
         <div> <Formulario onAgregarCita={sacoDatosDelForm}/> </div> 
-        <div><Listado onMostrarListado={lista} /></div>
+        
           
       </div>
     </>

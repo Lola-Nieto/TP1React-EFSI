@@ -13,7 +13,9 @@ function Cita({onMostrarCita}) {
         <p>Dueño: <span>{onMostrarCita.propietario}</span></p>
         <p>Fecha: <span>{onMostrarCita.fecha}</span></p>
         <p>Hora: <span>{onMostrarCita.hora}</span></p>
-        <p>Sintomas: <span>{onMostrarCita.sintomas}</span></p><button className="eliminar">Eliminar ×</button>
+        <p>Sintomas: <span>{onMostrarCita.sintomas}</span></p>
+        
+        <button className="eliminar">Eliminar ×</button>
       </div>
       </>
     )

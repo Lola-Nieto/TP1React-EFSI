@@ -11,7 +11,7 @@ function Formulario({onAgregarCita}) {
       hora: '', 
       sintomas: ''
     });
-    const [esValido, setEsValido] = useState(false); //Es válido empieza en false
+    const [esValido, setEsValido] = useState(true); //Es válido empieza en false
 
     
     const handleChange = (event) => {
@@ -21,12 +21,9 @@ function Formulario({onAgregarCita}) {
         [name]: value
       }));
       console.log(`campo que cambió: ${name} valor qeu se guardó: ${value}`);
-      if((!esValido && ValidarForm()) || (esValido && !ValidarForm())){ //Si variable está en no es válido y sí lo es  O si variable está en es válido y no lo es
-          setEsValido(!esValido); //Cambio el vALOR de la variable
-      }
-      
       
     };
+
     const ValidarForm = () => {
         let ret = true;
         for(let key in formData){
@@ -35,27 +32,12 @@ function Formulario({onAgregarCita}) {
             ret = false;
           }
       }
-      return ret;
-      /*
-      }else{
-        for(let key in formData){
-          if(formData[key]){
-            const posDeSalida = key;
-            break;
-          }
-        }
+      
+      if((!esValido && ret) || (esValido && !ret)){ //Si variable está en no es válido y sí lo es O si variable está en es válido y no lo es
+        setEsValido(!esValido); //Cambio el vALOR de la variable
+        console.log("cambia valor de esValido: "+ esValido)
 
-      }
-      
-      /*foreach(campo,formData) => {
-        if (Object.hasOwnProperty.call(formData, campo)) {
-          if (formData[campo] == '' ){
-            setEsValido(false);
-            break;
-          }
-        }
-      
-      }*/
+    }
     }
   
     const handleSubmit = (event) => {

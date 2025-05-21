@@ -5,16 +5,17 @@ import Cita from './Cita.jsx'
 
 
 
-function Listado({onMostrarListado}) {
+function Listado(props) {
 
-    
+  const lista = props.listaCitas;
+
     return (
       <>
       <div className = "lista-citas">
           <h2>Administra tus citas</h2>
           <ul>
-            {onMostrarListado.map((cita) => (
-              <li><Cita onMostrarCita={cita} /> </li>
+            {lista.map((cita) => (
+              <li><Cita citaX={cita} /> </li>
             ))}
           </ul>
       </div>

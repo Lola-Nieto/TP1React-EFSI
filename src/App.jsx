@@ -15,7 +15,7 @@ function App() {
   const [lista, setLista] = useState([]);
 
   const sacoDatosDelForm = (data) => {
-    console.log("Lo que llega a App.js: "+data)
+    console.log("Lo que llega a App.js: "+data.nombre) //Cambiar luego
     setNuevaCita(data)
     console.log("Lo que se guarda en cita en App.js: "+nuevaCita)
     agregarValor()

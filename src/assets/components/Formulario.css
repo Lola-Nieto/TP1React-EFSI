@@ -18,7 +18,14 @@ label {
     color: white;
   }
 
-  
+  p{
+    background-color: rgb(233, 233, 233);
+    color:red;
+    font-weight: bold;
+    padding: 2%;
+    border-radius: 4px;
+
+  }
  
   .alerta-error {
     background-color: white;

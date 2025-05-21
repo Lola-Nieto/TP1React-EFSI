@@ -15,7 +15,7 @@ function Listado(props) {
           <h2>Administra tus citas</h2>
           <ul>
             {lista.map((cita) => (
-              <li ><Cita citaX={cita} /> </li>
+              <li key={index}><Cita citaX={cita} /> </li>
             ))}
           </ul>
       </div>

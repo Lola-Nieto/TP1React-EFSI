@@ -18,7 +18,7 @@ label {
     color: white;
   }
 
-  p{
+  #msjError{
     background-color: rgb(233, 233, 233);
     color:red;
     font-weight: bold;

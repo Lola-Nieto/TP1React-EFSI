@@ -73,7 +73,7 @@ function Formulario({ onAgregarCita }) {
 
         <button type="submit" className="u-full-width button-primary" onClick={handleSubmit} >Agregar Cita</button>
 
-        {!esValido && <p>El formulario NO es válido.</p>}
+        {!esValido && <p id="msjError">El formulario NO es válido.</p>}
       </form>
 
 

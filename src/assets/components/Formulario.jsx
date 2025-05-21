@@ -24,25 +24,29 @@ function Formulario({onAgregarCita}) {
       
     };
 
-    const ValidarForm = () => {
-        let ret = true;
-        for(let key in formData){
-          if(!formData[key]){
-            console.log('Entra al if de validación - hay 1 valor que no tiene nada ')
-            ret = false;
-          }
-      }
-      
+ 
+      /*console.log("(!esValido && ret):" + ((!esValido && ret)))
+      console.log("(esValido && !ret):" + ((esValido && !ret))) 
       if((!esValido && ret) || (esValido && !ret)){ //Si variable está en no es válido y sí lo es O si variable está en es válido y no lo es
         setEsValido(!esValido); //Cambio el vALOR de la variable
-        console.log("cambia valor de esValido: "+ esValido)
-
-    }
+        console.log("cambia valor de esValido: "+ esValido) //PROBLEMA: no se cambia - cuando deberíacambiarse a true, se pone en false y viceversa
+*/
+    
+    const ValidarForm = () => {
+  
+      for (let key in formData) {
+        if (!formData[key]) {
+          console.log('Entra al if de validación - hay 1 valor que no tiene nada ')
+          return false;
+        }
+      }
+      return true;
     }
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      ValidarForm();
+      const valido = ValidarForm();
+      setEsValido(valido)
       console.log('esValido: '+esValido)
       if(esValido){
         console.log("Form válido. Data que le mando a App.js: "+ formData);

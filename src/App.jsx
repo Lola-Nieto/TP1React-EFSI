@@ -22,10 +22,10 @@ function App() {
   }
   
   const agregarValor = () => {
-    if (nuevaCita.trim() !== '') {
+
       setLista([...lista, setNuevaCita]); // Usar el operador de propagación para crear una nueva copia del array
       setNuevaCita('');
-    }
+    
   };
 
   return (
